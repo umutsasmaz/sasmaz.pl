@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SPE labs: Octopus, an abstraction layer for network operations</title>
-<meta name="description" content="SPE labs builds Octopus, an abstraction layer for network operations.">
+<meta name="description" content="SPE labs builds Octopus, an abstraction layer for network operations, with Claude as its troubleshooting advisor.">
 <link rel="canonical" href="https://sasmaz.pl/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sasmaz.pl/">
 <meta property="og:site_name" content="SPE labs">
 <meta property="og:title" content="SPE labs">
-<meta property="og:description" content="SPE labs builds Octopus, an abstraction layer for network operations.">
+<meta property="og:description" content="SPE labs builds Octopus, an abstraction layer for network operations, with Claude as its troubleshooting advisor.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='%230B6E79'/%3E%3C/svg%3E">
 <script type="application/ld+json">
 {
@@ -19,7 +19,7 @@
   "name": "SPE labs",
   "url": "https://sasmaz.pl/",
   "email": "umut@sasmaz.pl",
-  "description": "SPE labs builds Octopus, an abstraction layer for network operations.",
+  "description": "SPE labs builds Octopus, an abstraction layer for network operations, with Claude as its troubleshooting advisor.",
   "founder": { "@type": "Person", "name": "Umut Şaşmaz" },
   "address": { "@type": "PostalAddress", "addressCountry": "PL" }
 }
@@ -95,7 +95,8 @@
     <section>
       <h1>Octopus is an abstraction layer for network operations.</h1>
       <p>It keeps every network device configuration as an immutable version, detects drift from golden configurations, and runs changes as approved, auditable runbooks with rollback. Built for any organization that runs its own network.</p>
-      <p class="status">Pre-release. Cisco IOS, IOS-XE and IOS-XR first. Built with Claude Code.</p>
+      <p>We are building Claude into its troubleshooting module as an advisor. During an incident, Claude reads the evidence Octopus collects (device output, config diffs, recent changes) and suggests likely causes and next checks. It advises; every change still needs human approval.</p>
+      <p class="status">Pre-release. Cisco IOS, IOS-XE and IOS-XR first.</p>
       <dl>
         <dt>Company</dt><dd>SPE labs</dd>
         <dt>Founder</dt><dd>Umut Şaşmaz</dd>
