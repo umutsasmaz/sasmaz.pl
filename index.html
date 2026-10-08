@@ -3,126 +3,261 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SPE labs: Octopus, an abstraction layer for network operations</title>
-<meta name="description" content="SPE labs builds Octopus, an abstraction layer for network operations, with Claude as its troubleshooting advisor.">
+<title>Sasmaz labs</title>
+<meta name="description" content="Sasmaz labs is where Umut and Esra Şaşmaz build software in Poland: Octopus, an abstraction layer for network operations with Claude as its troubleshooting advisor, and Paws 'N' Board, a pet hotel platform.">
 <link rel="canonical" href="https://sasmaz.pl/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sasmaz.pl/">
-<meta property="og:site_name" content="SPE labs">
-<meta property="og:title" content="SPE labs">
-<meta property="og:description" content="SPE labs builds Octopus, an abstraction layer for network operations, with Claude as its troubleshooting advisor.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='%230B6E79'/%3E%3C/svg%3E">
+<meta property="og:site_name" content="Sasmaz labs">
+<meta property="og:title" content="Sasmaz labs">
+<meta property="og:description" content="Software by Umut and Esra Şaşmaz: Octopus for network operations and Paws 'N' Board for pet hotels.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231C1C1E'/%3E%3Ctext x='16' y='22.5' font-family='system-ui,sans-serif' font-size='19' font-weight='700' text-anchor='middle' fill='%23fff'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "SPE labs",
+  "name": "Sasmaz labs",
   "url": "https://sasmaz.pl/",
   "email": "umut@sasmaz.pl",
-  "description": "SPE labs builds Octopus, an abstraction layer for network operations, with Claude as its troubleshooting advisor.",
-  "founder": { "@type": "Person", "name": "Umut Şaşmaz" },
+  "description": "Sasmaz labs is where Umut and Esra Şaşmaz build software in Poland.",
+  "founder": [ { "@type": "Person", "name": "Umut Şaşmaz" }, { "@type": "Person", "name": "Esra Şaşmaz" } ],
   "address": { "@type": "PostalAddress", "addressCountry": "PL" }
 }
 </script>
-<style>
-  :root {
-    --bg: #F4F6F7;
-    --ink: #12212E;
-    --muted: #566573;
-    --accent: #0B6E79;
-    --rule: #D3DCE1;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0F1A22;
-      --ink: #E6EDF1;
-      --muted: #9AABB8;
-      --accent: #4FB3BF;
-      --rule: #2A3A46;
-    }
-  }
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font: 400 1.0625rem/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  }
-  .wrap { max-width: 64rem; margin: 0 auto; padding: 2rem 1rem 3rem; }
-  header { font-weight: 700; font-size: 1.125rem; letter-spacing: -0.01em; }
-  main {
-    display: grid;
-    grid-template-columns: minmax(0, 38rem) minmax(0, 1fr);
-    gap: 3rem;
-    align-items: center;
-    padding: 6rem 0 4rem;
-  }
-  h1 {
-    margin: 0 0 1.5rem;
-    font-size: clamp(2rem, 5vw, 3.25rem);
-    line-height: 1.1;
-    letter-spacing: -0.025em;
-    font-weight: 650;
-  }
-  p { margin: 0 0 1rem; max-width: 36rem; }
-  .status { color: var(--muted); }
-  .hub { width: 100%; max-width: 15rem; justify-self: center; color: var(--accent); }
-  dl {
-    display: grid;
-    grid-template-columns: max-content 1fr;
-    gap: 0.5rem 1.5rem;
-    margin: 2.5rem 0 0;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--rule);
-    max-width: 36rem;
-  }
-  dt { color: var(--muted); }
-  dd { margin: 0; }
-  a { color: var(--accent); text-underline-offset: 0.2em; }
-  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
-  footer { color: var(--muted); font-size: 0.9375rem; }
-  @media (max-width: 760px) {
-    main { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 0 3rem; }
-    .hub { order: -1; max-width: 9rem; justify-self: start; }
-  }
-</style>
 </head>
 <body>
-<div class="wrap">
-  <header>SPE labs</header>
-  <main>
-    <section>
-      <h1>Octopus is an abstraction layer for network operations.</h1>
-      <p>It keeps every network device configuration as an immutable version, detects drift from golden configurations, and runs changes as approved, auditable runbooks with rollback. Built for any organization that runs its own network.</p>
-      <p>We are building Claude into its troubleshooting module as an advisor. During an incident, Claude reads the evidence Octopus collects (device output, config diffs, recent changes) and suggests likely causes and next checks. It advises; every change still needs human approval.</p>
-      <p class="status">Pre-release. Cisco IOS, IOS-XE and IOS-XR first.</p>
-      <dl>
-        <dt>Company</dt><dd>SPE labs</dd>
-        <dt>Founder</dt><dd>Umut Şaşmaz</dd>
-        <dt>Contact</dt><dd><a href="mailto:umut@sasmaz.pl">umut@sasmaz.pl</a></dd>
-        <dt>Based in</dt><dd>Poland</dd>
-      </dl>
-    </section>
-    <svg class="hub" viewBox="0 0 240 240" aria-hidden="true" focusable="false">
-      <defs>
-        <g id="arm">
-          <path d="M142 120 Q 172 140 204 120" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-          <rect x="204" y="112" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="3"/>
-        </g>
-      </defs>
-      <use href="#arm"/>
-      <use href="#arm" transform="rotate(45 120 120)"/>
-      <use href="#arm" transform="rotate(90 120 120)"/>
-      <use href="#arm" transform="rotate(135 120 120)"/>
-      <use href="#arm" transform="rotate(180 120 120)"/>
-      <use href="#arm" transform="rotate(225 120 120)"/>
-      <use href="#arm" transform="rotate(270 120 120)"/>
-      <use href="#arm" transform="rotate(315 120 120)"/>
-      <circle cx="120" cy="120" r="22" fill="currentColor"/>
-    </svg>
-  </main>
-  <footer>© 2026 SPE labs</footer>
-</div>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Sasmaz labs</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="octopus.html">Octopus</a>
+      <a href="paws.html">Paws 'N' Board</a>
+      <a href="polski.html">Polski</a>
+      <a href="blog.html">Bizi Merak Etmeyin</a>
+      <a href="about.html">About</a>
+      <a class="btn btn-small" href="about.html#contact">Write to us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero center wrap">
+    <h1>Software built by a family of engineers.</h1>
+    <p class="lede">Sasmaz labs is where Umut and Esra Şaşmaz, two network and security engineers in Poland, build software together: Octopus for teams that run networks, Paws 'N' Board for a pet hotel in Warsaw, and Polski for people learning Polish.</p>
+    <div class="actions">
+      <a class="btn" href="octopus.html">See Octopus</a>
+      <a class="text-link" href="about.html#contact">Write to us</a>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="octopus-h">
+    <div class="panel">
+      <div class="split">
+        <div class="split-text">
+          <h2 id="octopus-h">Octopus keeps a record of every change to your network.</h2>
+          <p class="muted">Octopus is our first product, an abstraction layer for network operations. It sits between your engineers and every device: configurations are versioned, changes go through approval, and anything changed by hand shows up as drift.</p>
+          <ul class="checks">
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="currentColor" opacity=".12"/><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Every device configuration kept as a version, with a diff between any two</span></li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="currentColor" opacity=".12"/><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Drift from your golden configs, down to the line</span></li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="currentColor" opacity=".12"/><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Changes run as runbooks, after a second engineer approves them</span></li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="currentColor" opacity=".12"/><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>A tamper-evident audit trail, sent to your own SIEM</span></li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="currentColor" opacity=".12"/><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Claude as the troubleshooting advisor, now in development</span></li>
+          </ul>
+          <p class="status">Pre-release. Cisco IOS, IOS-XE and IOS-XR first.</p>
+          <div class="actions"><a class="btn" href="octopus.html">Read about Octopus</a></div>
+        </div>
+        <div class="stage">
+          <figure class="diff" aria-label="Example configuration diff">
+            <figcaption class="diff-head"><span><b>floor3-acc-02</b> running-config</span><span>version 42 to 43</span></figcaption>
+            <pre><code> interface GigabitEthernet1/0/24</code><code>  description desk-3-14</code><code>  switchport mode access</code><code class="del">- switchport access vlan 20</code><code class="add">+ switchport access vlan 30</code><code>  spanning-tree portfast</code></pre>
+            <div class="diff-foot"><span>Changed by hand, outside a runbook</span><span>Drift from golden config: 1 line</span></div>
+          </figure>
+          <div class="advisor">
+            <div class="advisor-head">
+              <span class="advisor-who"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 4.5h12a1.5 1.5 0 0 1 1.5 1.5v6.5A1.5 1.5 0 0 1 16 14H9l-3.5 3v-3H4a1.5 1.5 0 0 1-1.5-1.5V6A1.5 1.5 0 0 1 4 4.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Claude, troubleshooting advisor</span>
+              <span class="pill">Confidence 94%</span>
+            </div>
+            <p class="advisor-incident">Incident INC-2041: desk 3-14 has no network</p>
+            <dl class="advice">
+              <div><dt>Started</dt><dd>14:02, three minutes before the desk was reported offline.</dd></div>
+              <div><dt>Root cause</dt><dd>Gi1/0/24 was moved from VLAN 20 to VLAN 30 by hand, outside any runbook. The golden config still expects VLAN 20.</dd></div>
+              <div><dt>Verified with read-only checks</dt><dd>
+                <code>show interfaces Gi1/0/24 switchport</code><span class="result">Access Mode VLAN: 30</span>
+                <code>show mac address-table interface Gi1/0/24</code><span class="result">The desk's MAC address is now in VLAN 30</span>
+              </dd></div>
+              <div><dt>Suggested fix</dt><dd>Roll back to version 42 through a runbook. A second engineer approves it before it runs.</dd></div>
+            </dl>
+            <p class="advisor-log">Logged to INC-2041 at 14:06</p>
+          </div>
+          <p class="example-note">Example data. The advisor is in development.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="paws-h">
+    <div class="band">
+      <div class="head">
+        <h2 id="paws-h">Paws 'N' Board runs a pet hotel from one place.</h2>
+        <p class="lede">We built it for a pet hotel in Warsaw's Żoliborz district. Pet owners book and chat from their phone, the team sees the day's animals and tasks, and the owner runs the business from one panel.</p>
+      </div>
+      <div class="shots">
+        <figure class="shot">
+          <img src="paws-panel.jpg" width="1512" height="778" alt="The Paws 'N' Board management panel for today: pets in the hotel, arrivals, departures, requests and care checklists.">
+          <figcaption>The management panel for today, with demo data</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="paws-customer.jpg" width="1512" height="778" alt="The pet owner's home screen in Paws 'N' Board, showing their pets, the next booking and quick actions.">
+          <figcaption>A pet owner's home screen, with demo data</figcaption>
+        </figure>
+      </div>
+      <div class="band-foot">
+        <p class="status">Built and in testing before launch. Polish, English and Ukrainian.</p>
+        <a class="btn btn-light" href="paws.html">Read about Paws 'N' Board</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="polski-h">
+    <div class="panel">
+      <div class="split rev">
+        <div class="split-text">
+          <h2 id="polski-h">Polski helps you learn the Polish you need every day.</h2>
+          <p class="muted">Polski started as the web app we use to learn Polish ourselves. Now we are opening it to other learners.</p>
+          <ul class="checks checks-polski">
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="currentColor" opacity=".12"/><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Daily review with spaced repetition, a streak and a daily goal</span></li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="currentColor" opacity=".12"/><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>30 lessons, from greetings to ordering a beer</span></li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="currentColor" opacity=".12"/><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Grammar guides for all seven cases, with the endings coloured in</span></li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="currentColor" opacity=".12"/><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>X-ray: paste any Polish text to see the case of every noun and the tense of every verb</span></li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="currentColor" opacity=".12"/><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Short stories and daily news in Polish that mark the words you already know</span></li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="currentColor" opacity=".12"/><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Everyday dialogues, with word-by-word pronunciation feedback</span></li>
+          </ul>
+          <p class="status">Live at polski.bizimeraketmeyin.com</p>
+          <div class="actions"><a class="btn" href="polski.html">Read about Polski</a><a class="text-link" href="https://polski.bizimeraketmeyin.com/">Open Polski</a></div>
+        </div>
+        <div class="stage stage-polski">
+          <figure class="shot">
+            <img src="polski-xray.jpg" width="1512" height="598" alt="Polski X-ray: a short Polish text with each noun underlined in the colour of its case, and a side panel listing the cases found in the text.">
+            <figcaption>X-ray colours every noun by its case and marks the word that chose it</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="polski-reading.jpg" width="1512" height="778" alt="The Polski reading page with four beginner stories, each showing how much of it the reader already knows.">
+            <figcaption>Beginner stories mark how much of each one you already know</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="blog-h">
+    <div class="panel panel-blog">
+      <div class="split">
+        <div class="split-text">
+          <h2 id="blog-h">Bizi Merak Etmeyin is our family blog.</h2>
+          <p class="muted">The name means &ldquo;don't worry about us, we are fine&rdquo;. We write it in Turkish, for anyone planning a trip to Poland or a longer stay.</p>
+          <ul class="checks checks-blog">
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="currentColor" opacity=".12"/><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Step-by-step guides to Polish paperwork, such as ZUS insurance letters and tax certificates</span></li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="currentColor" opacity=".12"/><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Everyday life: online grocery shopping, public holidays and the European health insurance card</span></li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="currentColor" opacity=".12"/><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Polish words for daily life, and the words Polish and Turkish share</span></li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="currentColor" opacity=".12"/><path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trips and pets</span></li>
+          </ul>
+          <p class="status">Written by Esra and Umut</p>
+          <div class="actions"><a class="btn" href="blog.html">Read about the blog</a><a class="text-link" href="https://bizimeraketmeyin.com/">Open the blog</a></div>
+        </div>
+        <div class="stage stage-blog">
+          <figure class="shot">
+            <img src="blog-home.jpg" width="1512" height="778" alt="The Bizi Merak Etmeyin home page: a family illustration with two pets, the menu, and the latest post about everyday Polish words.">
+            <figcaption>The blog's home page</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="people-h">
+    <div class="head">
+      <h2 id="people-h">Two engineers, one family.</h2>
+      <p class="lede">We have both spent our careers keeping networks running and safe, at mobile operators, security companies and banks. Octopus is the tool we always wanted at work.</p>
+    </div>
+    <div class="people">
+      <div class="person">
+        <span class="avatar" aria-hidden="true">UŞ</span>
+        <div>
+          <h3>Umut Şaşmaz</h3>
+          <p class="role">Co-founder</p>
+          <p>Lead automation engineer at Bosch. Before that, ING in Warsaw, A10 Networks, Intertech and Turkcell. More than ten years of network and security automation.</p>
+        </div>
+      </div>
+      <div class="person">
+        <span class="avatar" aria-hidden="true">EŞ</span>
+        <div>
+          <h3>Esra Şaşmaz</h3>
+          <p class="role">Co-founder</p>
+          <p>Senior network security engineer at ING in Warsaw. Before that, KoçSistem, Vodafone, Barikat and Turkcell. Working in security since 2017.</p>
+        </div>
+      </div>
+    </div>
+    <div class="actions"><a class="text-link" href="about.html">More about us</a></div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="work-h">
+    <div class="head">
+      <h2 id="work-h">How we work</h2>
+      <p class="lede">We both work full time. For years, building what we wanted after work meant giving up our social life. Now that AI agents have matured, some of those tasks are offloaded to them.</p>
+    </div>
+    <div class="cols cols-2">
+      <div>
+        <h3>Small and close</h3>
+        <p>We are two founders. The people who decide what we build are the people who answer your email.</p>
+      </div>
+      <div>
+        <h3>Why Claude</h3>
+        <p>We use several AI agents and keep trying new ones. In our experience, Claude gives the best results.</p>
+      </div>
+      <div>
+        <h3>A loop that learns</h3>
+        <p>We run Claude inside harnesses built on our years of experience. It orchestrates the work, writes and tests the code, feeds its results back into the loop and learns from its own mistakes.</p>
+      </div>
+      <div>
+        <h3>People stay in charge</h3>
+        <p>Every issue is written together with a person, and every merge is made by a person.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="hello-h">
+    <div class="panel center">
+      <h2 id="hello-h">Say hello</h2>
+      <p class="lede">Questions about Octopus, Paws 'N' Board or working with us? Write to either of us. We answer every message ourselves.</p>
+      <div class="actions">
+        <a class="btn" href="mailto:umut@sasmaz.pl">umut@sasmaz.pl</a>
+        <a class="text-link" href="mailto:esra@sasmaz.pl">esra@sasmaz.pl</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="index.html">Sasmaz labs</a>
+      <p>Software by Umut and Esra Şaşmaz, Poland.</p>
+      <p>© 2026 Sasmaz labs</p>
+    </div>
+    <nav aria-label="Products">
+      <h2>Products</h2>
+      <ul><li><a href="octopus.html">Octopus</a></li><li><a href="paws.html">Paws 'N' Board</a></li><li><a href="polski.html">Polski</a></li></ul>
+    </nav>
+    <nav aria-label="About">
+      <h2>About</h2>
+      <ul><li><a href="about.html">About us</a></li><li><a href="blog.html">Bizi Merak Etmeyin</a></li><li><a href="about.html#contact">Contact</a></li></ul>
+    </nav>
+    <div>
+      <h2>Email</h2>
+      <ul><li><a href="mailto:umut@sasmaz.pl">umut@sasmaz.pl</a></li><li><a href="mailto:esra@sasmaz.pl">esra@sasmaz.pl</a></li></ul>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

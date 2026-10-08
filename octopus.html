@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Octopus by Sasmaz labs</title>
+<meta name="description" content="Octopus versions every network device configuration, detects drift and runs changes as approved, audited runbooks. Claude is being built in as its troubleshooting advisor.">
+<link rel="canonical" href="https://sasmaz.pl/octopus.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sasmaz.pl/octopus.html">
+<meta property="og:site_name" content="Sasmaz labs">
+<meta property="og:title" content="Octopus by Sasmaz labs">
+<meta property="og:description" content="An abstraction layer for network operations, with Claude as its troubleshooting advisor.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231C1C1E'/%3E%3Ctext x='16' y='22.5' font-family='system-ui,sans-serif' font-size='19' font-weight='700' text-anchor='middle' fill='%23fff'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Octopus",
+  "applicationCategory": "BusinessApplication",
+  "description": "An abstraction layer for network operations: configuration versioning, drift detection, approved change runbooks, tamper-evident audit, and a Claude troubleshooting advisor.",
+  "operatingSystem": "Virtual appliance",
+  "url": "https://sasmaz.pl/octopus.html",
+  "publisher": { "@type": "Organization", "name": "Sasmaz labs", "url": "https://sasmaz.pl/" }
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Sasmaz labs</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="octopus.html" aria-current="page">Octopus</a>
+      <a href="paws.html">Paws 'N' Board</a>
+      <a href="polski.html">Polski</a>
+      <a href="blog.html">Bizi Merak Etmeyin</a>
+      <a href="about.html">About</a>
+      <a class="btn btn-small" href="about.html#contact">Write to us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="cover wrap" aria-label="Octopus concept">
+    <div class="band band-octopus">
+      <figure class="shot">
+        <img src="octopus-cover.jpg" width="2400" height="1400" alt="Concept of the Octopus troubleshooting screen: a live incident with its collected evidence, the network path with the drifted switch highlighted, the config diff, and the Claude advisor's finding with a confidence score.">
+        <figcaption>Concept of the Octopus web UI, with example data. The web UI and the Claude advisor are in development.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="hero center wrap after-cover">
+    <h1>One layer between your team and every network device.</h1>
+    <p class="lede">Octopus is an abstraction layer for network operations. It collects and versions every configuration, shows what drifted, and runs changes through approval, execution and rollback, with every step on an audit trail.</p>
+    <div class="actions">
+      <a class="btn" href="mailto:umut@sasmaz.pl">Write to us about Octopus</a>
+      <a class="text-link" href="#advisor-h">See the Claude advisor</a>
+    </div>
+    <p class="note">Pre-release. Made by Sasmaz labs.</p>
+  </section>
+
+  <section class="section wrap" aria-labelledby="does-h">
+    <div class="panel">
+      <h2 id="does-h">What it does</h2>
+      <div class="cols">
+        <div>
+          <h3>Inventory</h3>
+          <p>Tenants, sites, devices and credentials in one place. Credentials are inherited from tenant to site to device.</p>
+        </div>
+        <div>
+          <h3>Config versions</h3>
+          <p>Scheduled and on-demand collection over SSH. Every configuration is kept as a version that never changes, with section-aware diffs between any two.</p>
+        </div>
+        <div>
+          <h3>Golden configs and drift</h3>
+          <p>Write down how a device should look once. Octopus tells you which devices drifted and which lines differ.</p>
+        </div>
+        <div>
+          <h3>Change runbooks</h3>
+          <p>Templates rendered for each device, a second person's approval before anything runs, then execution and rollback from the same runbook.</p>
+        </div>
+        <div>
+          <h3>Audit and SIEM</h3>
+          <p>A tamper-evident hash chain for each tenant, sent to the customer's own SIEM over TLS in RFC 5424 format.</p>
+        </div>
+        <div>
+          <h3>Access control</h3>
+          <p>Local accounts and LDAP or Active Directory, two-step sign-in, custom roles and API keys. Each tenant's data is kept apart by PostgreSQL row-level security.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="advisor-h">
+    <div class="panel">
+      <div class="split">
+        <div class="split-text">
+          <h2 id="advisor-h">The speed of AI, with a human in the loop.</h2>
+          <p class="lede">Attackers and bad actors already use AI to move faster and in more sophisticated ways. We are building Claude into Octopus so your network team has the same power, speed and skill on its side.</p>
+          <p class="muted">When an incident reaches your team, Claude picks it up straight away. It connects to the devices involved with read-only access, finds the root cause, confirms it with its own triage checks and works out the fix.</p>
+          <p class="muted">Every finding goes into the incident record with a confidence score. The engineer on call sees when the problem started, why it started and how to fix it, and makes the call. Any change still runs through an approved runbook.</p>
+        </div>
+        <div class="stage">
+          <figure class="diff" aria-label="Example configuration diff">
+            <figcaption class="diff-head"><span><b>floor3-acc-02</b> running-config</span><span>version 42 to 43</span></figcaption>
+            <pre><code> interface GigabitEthernet1/0/24</code><code>  description desk-3-14</code><code>  switchport mode access</code><code class="del">- switchport access vlan 20</code><code class="add">+ switchport access vlan 30</code><code>  spanning-tree portfast</code></pre>
+            <div class="diff-foot"><span>Changed by hand, outside a runbook</span><span>Drift from golden config: 1 line</span></div>
+          </figure>
+          <div class="advisor">
+            <div class="advisor-head">
+              <span class="advisor-who"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 4.5h12a1.5 1.5 0 0 1 1.5 1.5v6.5A1.5 1.5 0 0 1 16 14H9l-3.5 3v-3H4a1.5 1.5 0 0 1-1.5-1.5V6A1.5 1.5 0 0 1 4 4.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Claude, troubleshooting advisor</span>
+              <span class="pill">Confidence 94%</span>
+            </div>
+            <p class="advisor-incident">Incident INC-2041: desk 3-14 has no network</p>
+            <dl class="advice">
+              <div><dt>Started</dt><dd>14:02, three minutes before the desk was reported offline.</dd></div>
+              <div><dt>Root cause</dt><dd>Gi1/0/24 was moved from VLAN 20 to VLAN 30 by hand, outside any runbook. The golden config still expects VLAN 20.</dd></div>
+              <div><dt>Verified with read-only checks</dt><dd>
+                <code>show interfaces Gi1/0/24 switchport</code><span class="result">Access Mode VLAN: 30</span>
+                <code>show mac address-table interface Gi1/0/24</code><span class="result">The desk's MAC address is now in VLAN 30</span>
+              </dd></div>
+              <div><dt>Suggested fix</dt><dd>Roll back to version 42 through a runbook. A second engineer approves it before it runs.</dd></div>
+            </dl>
+            <p class="advisor-log">Logged to INC-2041 at 14:06</p>
+          </div>
+          <p class="example-note">Example data. The advisor is in development.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="arch-h">
+    <div class="head">
+      <h2 id="arch-h">How it fits together</h2>
+      <p class="lede">Octopus sits between your team and your network. It collects every configuration, runs changes only after approval, and writes everything it does to an audit trail your SIEM can read.</p>
+    </div>
+    <figure class="arch">
+      <div class="arch-row arch-in">
+        <div class="node"><b>Engineers</b><span>Web UI</span></div>
+        <div class="node"><b>Scripts and tools</b><span>REST API with API keys</span></div>
+        <div class="node"><b>Sign-in</b><span>Local accounts, LDAP or Active Directory, two&#8209;step</span></div>
+      </div>
+      <div class="arch-core">
+        <p class="arch-title">Octopus appliance</p>
+        <ol class="flow">
+          <li class="flow-step"><b>Collect</b>
+            <ul><li>Inventory of tenants, sites and devices</li><li>Configs pulled over SSH, on a schedule or on demand</li><li>Every version kept, with diffs between any two</li></ul>
+          </li>
+          <li class="flow-step"><b>Check</b>
+            <ul><li>Golden configs written once</li><li>Drift found down to the line</li></ul>
+          </li>
+          <li class="flow-step"><b>Change</b>
+            <ul><li>Runbooks rendered for each device</li><li>A second engineer approves</li><li>Run and roll back from the same runbook</li></ul>
+          </li>
+          <li class="flow-step"><b>Record</b>
+            <ul><li>Every action in a tamper-evident hash chain</li><li>Each tenant's data kept apart</li></ul>
+          </li>
+        </ol>
+        <div class="flow-advisor">
+          <b>Claude troubleshooting advisor</b><span class="pill">In development</span>
+          <p>Picks up incidents, checks the devices with read-only access, finds the root cause and suggests the fix with a confidence score. It never changes a device.</p>
+        </div>
+      </div>
+      <div class="arch-row arch-out">
+        <div class="node"><b>Network devices</b><span>Cisco IOS, IOS-XE and IOS-XR, over SSH</span></div>
+        <div class="node"><b>Your SIEM</b><span>Audit events over TLS, in RFC 5424 format</span></div>
+        <div class="node node-claude"><b>Claude</b><span>Through the Anthropic API, for the advisor</span></div>
+      </div>
+      <figcaption>The planned shape of Octopus. It is pre-release, and the Claude advisor is in development.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section wrap" aria-labelledby="who-h">
+    <div class="panel">
+      <div class="split">
+        <div class="split-text">
+          <h2 id="who-h">Who it is for</h2>
+          <p class="muted">Any organization that runs its own network: banks, factories, retail chains, technology companies and internet providers. Managed service providers can use it under a separate license. Octopus is designed to ship as a closed virtual appliance that also works in networks with no internet access.</p>
+        </div>
+        <dl class="facts">
+          <dt>Stage</dt><dd>Pre-release</dd>
+          <dt>Devices</dt><dd>Cisco IOS, IOS-XE and IOS-XR over SSH first</dd>
+          <dt>Advisor</dt><dd>Claude, in development</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="hello-h">
+    <div class="panel center">
+      <h2 id="hello-h">Questions about Octopus?</h2>
+      <p class="lede">Write to us. We answer every message ourselves.</p>
+      <div class="actions">
+        <a class="btn" href="mailto:umut@sasmaz.pl">umut@sasmaz.pl</a>
+        <a class="text-link" href="mailto:esra@sasmaz.pl">esra@sasmaz.pl</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="index.html">Sasmaz labs</a>
+      <p>Software by Umut and Esra Şaşmaz, Poland.</p>
+      <p>© 2026 Sasmaz labs</p>
+    </div>
+    <nav aria-label="Products">
+      <h2>Products</h2>
+      <ul><li><a href="octopus.html">Octopus</a></li><li><a href="paws.html">Paws 'N' Board</a></li><li><a href="polski.html">Polski</a></li></ul>
+    </nav>
+    <nav aria-label="About">
+      <h2>About</h2>
+      <ul><li><a href="about.html">About us</a></li><li><a href="blog.html">Bizi Merak Etmeyin</a></li><li><a href="about.html#contact">Contact</a></li></ul>
+    </nav>
+    <div>
+      <h2>Email</h2>
+      <ul><li><a href="mailto:umut@sasmaz.pl">umut@sasmaz.pl</a></li><li><a href="mailto:esra@sasmaz.pl">esra@sasmaz.pl</a></li></ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
